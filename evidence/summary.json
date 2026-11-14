@@ -1,0 +1,66 @@
+{
+  "suite_version": 1,
+  "input_source": "fixed tool calls",
+  "python": "3.14.6",
+  "sqlite": "3.50.4",
+  "metrics": {
+    "baseline": {
+      "scenarios": 24,
+      "security_challenge_scenarios": 19,
+      "scenarios_with_unauthorized_send": 13,
+      "unauthorized_sends": 13,
+      "expected_legitimate_tasks": 8,
+      "completed_legitimate_tasks": 8,
+      "false_denials": 0,
+      "duplicate_sends": 2,
+      "median_http_ms": 32.227,
+      "decisions": {
+        "invalid_request": 4,
+        "reply_lost": 2,
+        "sent": 20,
+        "unauthenticated": 1,
+        "unknown_endpoint": 1
+      }
+    },
+    "text-filter": {
+      "scenarios": 24,
+      "security_challenge_scenarios": 19,
+      "scenarios_with_unauthorized_send": 12,
+      "unauthorized_sends": 12,
+      "expected_legitimate_tasks": 8,
+      "completed_legitimate_tasks": 7,
+      "false_denials": 1,
+      "duplicate_sends": 2,
+      "median_http_ms": 27.826,
+      "decisions": {
+        "denied": 2,
+        "invalid_request": 4,
+        "reply_lost": 2,
+        "sent": 18,
+        "unauthenticated": 1,
+        "unknown_endpoint": 1
+      }
+    },
+    "authorization": {
+      "scenarios": 24,
+      "security_challenge_scenarios": 19,
+      "scenarios_with_unauthorized_send": 0,
+      "unauthorized_sends": 0,
+      "expected_legitimate_tasks": 8,
+      "completed_legitimate_tasks": 8,
+      "false_denials": 0,
+      "duplicate_sends": 0,
+      "median_http_ms": 26.6,
+      "decisions": {
+        "already_sent": 1,
+        "conflict": 1,
+        "denied": 12,
+        "invalid_request": 4,
+        "reply_lost": 2,
+        "sent": 6,
+        "unauthenticated": 1,
+        "unknown_endpoint": 1
+      }
+    }
+  }
+}
