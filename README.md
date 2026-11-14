@@ -1,5 +1,7 @@
 # MailGuard A2
 
+**Team · Innopolis University** — Vladimir Belyaev, Arseniy Kolesnikov, and Aleksey Klyosov.
+
 A local prototype that prevents an AI agent from sending a report outside its current permissions. It compares three execution policies against the same tool calls and checks what actually reached the mock outbox.
 
 **Drawerrr category** · Safeguarding delegated actions
