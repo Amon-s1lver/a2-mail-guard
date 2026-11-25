@@ -6,7 +6,11 @@ A research testbed for controlling consequential API calls by AI agents. Stage o
 
 ## Stage one baseline
 
-The detailed Russian [stage-one research report](docs/stage1-report.md) is also available as an editable [Word document](docs/stage1-report.docx). It covers the question, related methods, proposed theoretical contribution, baseline protocol, measured results, future experiments and proposed team responsibilities.
+The detailed Russian [stage-one research report](docs/stage1-report.md) is also available as an editable [Word document](docs/stage1-report.docx). It covers the question, related methods, proposed theoretical contribution, baseline protocol, measured results, future experiments and completed individual contributions.
+
+Stage-one submission materials are on the current `main` branch. Record the full commit ID with `git rev-parse HEAD` when submitting.
+
+Vladimir prepared the research question, comparison protocol, report and repository publication. Arseniy added the three-API revocation test and concise demo output in [aca27b9](https://github.com/Amon-s1lver/a2-mail-guard/commit/aca27b9). Aleksey checked scenario coverage and state-change labels in [8333415](https://github.com/Amon-s1lver/a2-mail-guard/commit/8333415) and documented the nine static-policy failures in [e3b964e](https://github.com/Amon-s1lver/a2-mail-guard/commit/e3b964e).
 
 Python 3.10 or newer is required. All benchmark dependencies are in the standard library.
 
@@ -31,7 +35,7 @@ The denominator 42 counts episodes containing at least one attempt that should c
 
 The static policy checks an exact principal, operation, target and arguments loaded at episode start. It misses all nine cases where a trusted reference state changes after approval — revocation, expiration or a resource version change in each API. These events modify the evaluator's reference state. The static service receives its initial policy snapshot and intentionally has no refresh mechanism. Each API is simulated by a committed ledger record. External delivery, bank processing and physical deletion are outside this stage.
 
-The [fixtures](examples/api_stage1.json), [reference outcomes](evidence/stage1/outcomes.csv), [summary](evidence/stage1/summary.json), [traces](evidence/stage1/traces.jsonl) and [manifest](evidence/stage1/manifest.json) are versioned. `verify` cross-checks fixtures, saved effects, CSV, summary and source hashes. Thirteen automated tests cover both the generalized baseline and the original pilot.
+The [fixtures](examples/api_stage1.json), [reference outcomes](evidence/stage1/outcomes.csv), [summary](evidence/stage1/summary.json), [traces](evidence/stage1/traces.jsonl) and [manifest](evidence/stage1/manifest.json) are versioned. `verify` cross-checks fixtures, saved effects, CSV, summary and source hashes. Sixteen automated tests cover both the generalized baseline and the original pilot, including the added revocation and label audits.
 
 ## Research direction
 

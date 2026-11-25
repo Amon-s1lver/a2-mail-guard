@@ -10,8 +10,8 @@
     "permitted_attempts": 12,
     "false_denials": 0,
     "duplicates": 0,
-    "median_http_ms": 24.129,
-    "p95_http_ms": 42.764,
+    "median_http_ms": 24.517,
+    "p95_http_ms": 33.988,
     "decisions": {
       "already_committed": 3,
       "committed": 36,
@@ -32,8 +32,8 @@
     "permitted_attempts": 12,
     "false_denials": 3,
     "duplicates": 0,
-    "median_http_ms": 24.246,
-    "p95_http_ms": 43.614,
+    "median_http_ms": 24.719,
+    "p95_http_ms": 42.913,
     "decisions": {
       "already_committed": 3,
       "committed": 30,
@@ -55,8 +55,8 @@
     "permitted_attempts": 12,
     "false_denials": 0,
     "duplicates": 0,
-    "median_http_ms": 23.605,
-    "p95_http_ms": 39.805,
+    "median_http_ms": 16.222,
+    "p95_http_ms": 30.055,
     "decisions": {
       "already_committed": 3,
       "committed": 18,
