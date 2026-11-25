@@ -28,7 +28,14 @@ def main():
         cases = [case for case in cases if case["id"] == args.scenario]
     results = [run_case(case, policy) for case in cases for policy in Policy]
     if args.command == "demo":
-        print(json.dumps(results, indent=2))
+        print(args.scenario)
+        for result in results:
+            last = next(step for step in reversed(result["trace"]) if step["op"] == "call")
+            print(
+                f"{result['policy']:14} http={last['http_status']} "
+                f"new_effects={len(last['new_effects'])} "
+                f"violations={result['violations']}"
+            )
         return
     for policy, metrics in write_results(args.output, suite, results).items():
         print(

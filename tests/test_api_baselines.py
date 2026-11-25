@@ -58,3 +58,16 @@ class ApiBaselineTests(unittest.TestCase):
             bad = {**refund, "arguments": {"amount_cents": amount, "currency": "RUB"}}
             with self.assertRaises(ValueError):
                 Action.parse(bad)
+
+    def test_static_policy_commits_after_revocation(self):
+        for operation in ("message.send", "record.delete", "payment.refund"):
+            case = next(c for c in self.suite["scenarios"] if c["id"] == operation + "/revoked")
+            service = ApiService(
+                self.directory / f"{operation}-revoked.db",
+                Policy.STATIC,
+                case["permissions"],
+            )
+            payload = next(event["payload"] for event in case["events"] if event["op"] == "call")
+            status, _ = service.execute("agent-a", payload)
+            self.assertEqual(status, 201, operation)
+            self.assertEqual(len(read_effects(service.path)), 1)
