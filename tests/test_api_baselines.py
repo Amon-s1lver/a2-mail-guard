@@ -15,6 +15,31 @@ class ApiBaselineTests(unittest.TestCase):
         temp = TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.directory = Path(temp.name)
+    def test_each_api_has_sixteen_development_templates(self):
+        groups = {}
+        for case in self.suite["scenarios"]:
+            groups.setdefault(case["api"], []).append(case)
+
+        self.assertEqual(
+            set(groups),
+            {"message.send", "record.delete", "payment.refund"},
+        )
+        expected = {
+            "benign", "injection", "scope", "dynamic-state",
+            "retry", "bypass", "validation",
+        }
+        for api, cases in groups.items():
+            self.assertEqual(len(cases), 16, api)
+            self.assertEqual({case["family"] for case in cases}, expected, api)
+
+    def test_state_change_forbids_later_effects(self):
+        for case in self.suite["scenarios"]:
+            stale = False
+            for event in case["events"]:
+                if event["op"] == "state_change":
+                    stale = True
+                elif event["op"] == "call" and stale:
+                    self.assertIsNone(event["expected_effect"], case["id"])
 
     def test_fixture_generation_is_reproducible(self):
         self.assertEqual(generate_suite(), self.suite)
