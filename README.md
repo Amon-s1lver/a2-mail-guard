@@ -6,6 +6,8 @@ A research testbed for controlling consequential API calls by AI agents. Stage o
 
 ## Stage one baseline
 
+The detailed Russian [stage-one research report](docs/stage1-report.md) is also available as an editable [Word document](docs/stage1-report.docx). It covers the question, related methods, proposed theoretical contribution, baseline protocol, measured results, future experiments and proposed team responsibilities.
+
 Python 3.10 or newer is required. All benchmark dependencies are in the standard library.
 
 ```sh
