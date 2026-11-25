@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-25T09:55:04.336811+00:00",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "sqlite": "3.50.4",
+  "suite_version": 1,
+  "input_source": "fixed API call traces",
+  "command": "python -m apiguard evaluate --output evidence/stage1",
+  "source_hash_normalization": "UTF-8 source bytes, CRLF normalized to LF",
+  "source_sha256": {
+    "apiguard/__init__.py": "49ccd5d92d23fe47a57249264fc9f9b0f32503e3a07a38d0bed1a60879a42c34",
+    "apiguard/__main__.py": "d5e8e808d376bdeba1f26a79cfd7915ec422fe51989b4351f3f1740fe940b3f5",
+    "apiguard/evaluate.py": "2d6e9a1ceb4335220a824aea7dbd390593f0f150ae1d8f83892be33139760c79",
+    "apiguard/fixtures.py": "a4fc669a9929b55d300e9b04da476ee94876fe418245a19738fac39bf2ad1593",
+    "apiguard/service.py": "a770de7c8d78cf82f0f20cbe5d4adcf270f391a843a52815c20401712cd7a466",
+    "apiguard/verify.py": "0fced0cabd07ee15e18e5effc8b5ba0b328ca90b4439d30be91d3c9f5eb6be4a",
+    "examples/api_stage1.json": "b27dd9359d659e64fac8796f3cb6992a3f0323004aedf1df665c08f2dc30b004",
+    "mailguard/http_api.py": "8f7cbc8e48a0967a26795904aa3dfbbd3795494e29bfc2df65667a6607d43c25",
+    "mailguard/service.py": "7813669bcd2781eda60f4e1436873b175af1879167c9e7ec514d83790fb958fb",
+    "tests/test_api_baselines.py": "3a45de3c9d9c12be33777d774045bc731c0464850bf9b3bcc4e3f8bebc0fd658",
+    "tests/test_service.py": "9b27ac874b6acb11a3c3b456262564deea58bb9c27103d61b10e0bafa5300bc9"
+  }
+}

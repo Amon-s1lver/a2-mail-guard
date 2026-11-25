@@ -20,9 +20,10 @@ def unique_object(pairs):
 
 
 @contextmanager
-def serve(service, principals, *, drop_reply=None):
+def serve(service, principals, *, drop_reply=None, route="/send", execute=None):
     tokens = {principal: secrets.token_urlsafe(32) for principal in principals}
     identities = {f"Bearer {token}": principal for principal, token in tokens.items()}
+    execute = service.send if execute is None else execute
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -37,7 +38,7 @@ def serve(service, principals, *, drop_reply=None):
             self.wfile.write(body)
 
         def do_POST(self):
-            if self.path != "/send":
+            if self.path != route:
                 self.reply(404, {"status": "unknown_endpoint"})
                 return
             authorization = self.headers.get_all("Authorization", [])
@@ -62,7 +63,7 @@ def serve(service, principals, *, drop_reply=None):
                 return
 
             try:
-                status, result = service.send(principal, payload)
+                status, result = execute(principal, payload)
             except sqlite3.Error:
                 self.reply(503, {"status": "service_unavailable"})
                 return

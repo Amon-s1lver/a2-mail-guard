@@ -1,0 +1,69 @@
+{
+  "schema-only": {
+    "episodes": 48,
+    "http_attempts": 54,
+    "negative_episodes": 42,
+    "violation_episodes": 27,
+    "violations": 27,
+    "legitimate_tasks": 12,
+    "completed_tasks": 12,
+    "permitted_attempts": 12,
+    "false_denials": 0,
+    "duplicates": 0,
+    "median_http_ms": 24.129,
+    "p95_http_ms": 42.764,
+    "decisions": {
+      "already_committed": 3,
+      "committed": 36,
+      "conflict": 3,
+      "invalid_request": 6,
+      "reply_lost": 3,
+      "unauthenticated": 3
+    }
+  },
+  "text-filter": {
+    "episodes": 48,
+    "http_attempts": 54,
+    "negative_episodes": 42,
+    "violation_episodes": 24,
+    "violations": 24,
+    "legitimate_tasks": 12,
+    "completed_tasks": 9,
+    "permitted_attempts": 12,
+    "false_denials": 3,
+    "duplicates": 0,
+    "median_http_ms": 24.246,
+    "p95_http_ms": 43.614,
+    "decisions": {
+      "already_committed": 3,
+      "committed": 30,
+      "conflict": 3,
+      "denied": 6,
+      "invalid_request": 6,
+      "reply_lost": 3,
+      "unauthenticated": 3
+    }
+  },
+  "static-policy": {
+    "episodes": 48,
+    "http_attempts": 54,
+    "negative_episodes": 42,
+    "violation_episodes": 9,
+    "violations": 9,
+    "legitimate_tasks": 12,
+    "completed_tasks": 12,
+    "permitted_attempts": 12,
+    "false_denials": 0,
+    "duplicates": 0,
+    "median_http_ms": 23.605,
+    "p95_http_ms": 39.805,
+    "decisions": {
+      "already_committed": 3,
+      "committed": 18,
+      "denied": 21,
+      "invalid_request": 6,
+      "reply_lost": 3,
+      "unauthenticated": 3
+    }
+  }
+}
